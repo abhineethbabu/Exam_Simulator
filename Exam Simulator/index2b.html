@@ -1,0 +1,119 @@
+ALL THE BEST!</p>
+<p class="time">TIME REMAINING<div id="countdown">1:00</div></p>
+<script>
+
+  const startingMinutes = 1;
+  let time = startingMinutes * 60;
+
+  const countdownEl = document.getElementById("countdown");
+
+  setInterval(updateCountdown,1000);
+
+  function check() {
+    var c = 0;
+    var q1 = document.exam.q1.value;
+    var q2 = document.exam.q2.value;
+    var q3 = document.exam.q3.value;
+    var q4 = document.exam.q4.value;
+    var q5 = document.exam.q5.value;
+
+    var result = document.getElementById("result");
+    var exam = document.getElementById("exam");
+
+    if (q1 == "python") {
+      c++;
+    }
+    if (q2 == "russia") {
+      c++;
+    }
+    if (q3 == "delhi") {
+      c++;
+    }
+    if (q4 == "sankalp") {
+      c++;
+    }
+    if (q5 == "3") {
+      c++;
+    }
+
+    exam.style.display = "none";
+
+    result.textContent = `\nScore: ${c} / 5\n`;
+
+
+  }
+
+  function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
+    time--;
+
+    if(minutes == 0 && seconds == 0){
+
+      check();
+    
+    }
+
+  }
+
+
+ 
+</script>
+<!-- 
+
+  -->
+<div>
+  <p class="q">1. What is the best programming language?</p>
+  <p><input type="radio" name="q1" value="HTML" />(A) HTML</p>
+  <p><input type="radio" name="q1" value="python" />(A) python</p>
+  <p><input type="radio" name="q1" value="javascript" />(A) javascript</p>
+  <p><input type="radio" name="q1" value="swift" />(d) swift</p>
+</div>
+
+<div>
+  <p class="q">2. What is the biggest country in the world?</p>
+  <p><input type="radio" name="q2" value="russia" />(A) russia</p>
+  <p><input type="radio" name="q2" value="america" />(A) america</p>
+  <p><input type="radio" name="q2" value="china" />(A) china</p>
+  <p><input type="radio" name="q2" value="canada" />(d) canada</p>
+</div>
+
+<div>
+  <p class="q">3. What is the capital of India?</p>
+  <p><input type="radio" name="q3" value="delhi" />(A) delhi</p>
+  <p><input type="radio" name="q3" value="kerala" />(A) kerala</p>
+  <p><input type="radio" name="q3" value="telengana" />(A) telengana</p>
+  <p><input type="radio" name="q3" value="up" />(d) up</p>
+</div>
+
+<div>
+  <p class="q">4. What is the biggest problem?</p>
+  <p><input type="radio" name="q4" value="financial" />(A) financial</p>
+  <p><input type="radio" name="q4" value="sankalp" />(A) sankalp</p>
+  <p><input type="radio" name="q4" value="economy" />(A) economy</p>
+  <p><input type="radio" name="q4" value="none" />(d) none</p>
+</div>
+
+<div class="last-q">
+  <p class="q">5. How many people in one room?</p>
+  <p><input type="radio" name="q5" value="1" />(A) 1</p>
+  <p><input type="radio" name="q5" value="2" />(A) 2</p>
+  <p><input type="radio" name="q5" value="3" />(A) 3</p>
+  <p><input type="radio" name="q5" value="4" />(d) 4</p>
+</div>
+
+<input
+  type="button"
+  id="button"
+  name=""
+  value="SUBMIT"
+  onclick="check()"
+/>
+</form>
+
+<p id="result"></p>
+</body>
+</html>
